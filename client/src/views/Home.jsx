@@ -1,5 +1,4 @@
 import React from "react";
-import styled from "styled-components";
 // import styles from "./Home.module.css";
 
 import { useEffect, useState } from "react";
@@ -18,83 +17,13 @@ import NavBar from "../components//NavBar";
 import Pagination from "../components/Pagination";
 import Loading from "../components/Loading";
 
-const FilterDiv = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: space-evenly;
-  background-color: grey;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-
-  select {
-    padding: 5px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    margin-right: 10px;
-  }
-
-  button {
-    background-color: #0074d9;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    padding: 10px;
-    cursor: pointer;
-  }
-`;
-
-//botones de paginacion
-const PaginationButton = styled.button`
-  float: center;
-  margin-top: 16px;
-  height: 50%;
-  padding: 8px 16px;
-  border-radius: 8px;
-  color: #fff;
-  border: none;
-  text-decoration: none;
-  background-color: hsl(0, 0%, 8%);
-  &.active {
-    border-radius: 5px;
-    transition: background-color 0.3s;
-  }
-  &:hover:not(.active) {
-    background-color: hsl(0, 0%, 8%);
-    color: #fff;
-    font-size: 15px;
-  }
-  /* background: transparent;
-  border: none;
-  cursor: pointer;
-  transition: background-color 0.5s, color 0.5s;
-  &:hover {
-    background-color: #ff9800;
-    color: white;
-  } */
-`;
-
-const Wrapper = styled.div`
-  width: 100%;
-  height: 900px;
-  margin: 0 auto;
-  /* background-color: lightgrey;  */
-`;
-
-const PaginationDiv = styled.div`
-  justify-content: center;
-  display: flex;
-`;
-const CardContainer = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  width: 98vw;
-  justify-content: center;
-`;
-
-// const FilterDiv = styled.div`
-//   display: flex;
-// `;
+import {
+  FilterDiv,
+  PaginationButton,
+  Wrapper,
+  PaginationDiv,
+  CardContainer,
+} from "./viewsStyles";
 
 const Home = () => {
   const dispatch = useDispatch();

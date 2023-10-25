@@ -1,29 +1,9 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import Search from "./Search";
-import styled from "styled-components";
 import pokelogo from "../assets/PokeLogo.png";
+import { Nav, Logo, Button } from "./componentsStyles";
 
-const Nav = styled.nav`
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-  background-color: black;
-`;
-const Logo = styled.img`
-  height: 80px;
-`;
-
-const Button = styled.button`
-  background-color: grey;
-  color: white;
-  padding: 5px;
-  width: 120px;
-
-  @media screen and (max-width: 450px) {
-    display: none;
-  }
-`;
 function Navbar() {
   return (
     <Nav>

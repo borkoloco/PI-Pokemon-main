@@ -1,74 +1,20 @@
 import { React, useEffect, useState } from "react";
-
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { getTypes, postPokemon } from "../redux/actions";
 import Validate from "./Validate";
-import styled from "styled-components";
-
-const FormContainer = styled.div`
-  max-width: 400px;
-  margin: 0 auto;
-`;
-
-const Form = styled.form`
-  display: flex;
-  flex-direction: column;
-`;
-
-const FormGroup = styled.div`
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 10px;
-`;
-
-const Label = styled.label`
-  font-weight: bold;
-`;
-
-const Input = styled.input`
-  padding: 5px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  margin: 5px 0;
-`;
-
-const Button = styled.button`
-  background-color: #0074d9;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  padding: 10px;
-  cursor: pointer;
-  margin-top: 10px;
-`;
-
-const ErrorMessage = styled.p`
-  color: red;
-`;
-
-const Select = styled.select`
-  padding: 5px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  margin: 5px 0;
-`;
-
-const TypeTag = styled.div`
-  display: flex;
-  align-items: center;
-  margin: 5px 0;
-`;
-
-const DeleteButton = styled.button`
-  background-color: red;
-  color: white;
-  border: none;
-  border-radius: 50%;
-  width: 20px;
-  height: 20px;
-  margin-right: 5px;
-`;
+import {
+  FormContainer,
+  Form,
+  FormGroup,
+  Label,
+  Input,
+  Button3,
+  ErrorMessage,
+  Select,
+  TypeTag,
+  DeleteButton,
+} from "styled-components";
 
 function CreatePoke() {
   const dispatch = useDispatch();
@@ -143,7 +89,7 @@ function CreatePoke() {
       <Form onSubmit={handleSubmit}>
         <h1>Create Pokémon</h1>
         <Link to="/home">
-          <Button>Go Back</Button>
+          <Button3>Go Back</Button3>
         </Link>
         <FormGroup>
           <Label htmlFor="name">Name : </Label>
@@ -255,7 +201,7 @@ function CreatePoke() {
           })}
         </FormGroup>
 
-        <Button type="submit">Create Pokemon</Button>
+        <Button3 type="submit">Create Pokemon</Button3>
         <br />
       </Form>
     </FormContainer>

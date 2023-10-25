@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Video } from "./views.js";
+import { Video } from "./viewsStyles.js";
 
 const Landing = () => {
   return (
