@@ -1,6 +1,6 @@
 import React from "react";
 // import styles from "./Pagination.module.css";
-import { List, ListItem, Button2 } from "./componentsStyles";
+import { List, ListItem, Button2 } from "./componentsStyles.js";
 
 function Pagination({ Allpokemons, pokemonsPerPage, paginated }) {
   const pageNumber = [];

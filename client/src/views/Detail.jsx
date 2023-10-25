@@ -5,7 +5,7 @@ import { getPokeById } from "../redux/actions";
 import { useEffect } from "react";
 import pokebolaloading from "../assets/pokeball.gif";
 
-import { StyledDiv, LoadingContainer } from "./viewsStyles";
+import { StyledDiv, LoadingContainer } from "./viewsStyles.js";
 
 export default function Detail() {
   //const pokemon = useSelector(state => state.data);

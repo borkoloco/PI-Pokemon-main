@@ -14,7 +14,7 @@ import {
   Select,
   TypeTag,
   DeleteButton,
-} from "styled-components";
+} from "./viewsStyles.js";
 
 function CreatePoke() {
   const dispatch = useDispatch();

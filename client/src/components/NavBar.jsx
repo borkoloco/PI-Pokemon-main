@@ -2,7 +2,7 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import Search from "./Search";
 import pokelogo from "../assets/PokeLogo.png";
-import { Nav, Logo, Button } from "./componentsStyles";
+import { Nav, Logo, Button } from "./componentsStyles.js";
 
 function Navbar() {
   return (

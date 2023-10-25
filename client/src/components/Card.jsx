@@ -6,7 +6,7 @@ import {
   Front,
   Back,
   Flip3DContainer,
-} from "./componentsStylescom";
+} from "./componentsStyles.js";
 
 function Card({ id, name, image, attack, types }) {
   return (

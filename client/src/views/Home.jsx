@@ -23,7 +23,7 @@ import {
   Wrapper,
   PaginationDiv,
   CardContainer,
-} from "./viewsStyles";
+} from "./viewsStyles.js";
 
 const Home = () => {
   const dispatch = useDispatch();
