@@ -1,6 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-
 import { Link } from "react-router-dom";
 
 const Title = styled.h2`
@@ -65,8 +64,9 @@ function Card({ id, name, image, attack, types }) {
     <Flip3DContainer>
       <Flip3D>
         <Back>
+          <Title>Type</Title>
           <Title>{types}</Title>
-          <Title>{attack}</Title>
+          <Title>{`Attack: ${attack}`}</Title>
           <Link to={`/pokemon/${id}`}>
             <Title>Details</Title>
           </Link>
