@@ -53,7 +53,7 @@ export const getPokemonName = (name) => {
   };
 };
 
-export const getPokeById = (id) => {
+export const getPokemonById = (id) => {
   return async (dispatch) => {
     try {
       const { data } = await axios.get(`/pokemon/${id}`);
@@ -74,7 +74,7 @@ export const postPokemon = (payload) => {
   return async () => {
     try {
       const { data } = await axios.post("/pokemon", payload);
-      alert("Pokémon has been created!");
+      alert("Pokemon created");
       return data;
     } catch (error) {
       alert(error.message);

@@ -1,15 +1,12 @@
 import React from "react";
-// import styles from "./Pagination.module.css";
 import { List, ListItem, Button2 } from "./componentsStyles.js";
 
-function Pagination({ Allpokemons, pokemonsPerPage, paginated }) {
+const Pagination = ({ Allpokemons, pokemonsPerPage, paginated }) => {
   const pageNumber = [];
   for (let i = 0; i < Math.ceil(Allpokemons / pokemonsPerPage); i++) {
     pageNumber.push(i + 1);
   }
   return (
-    // <ul className={styles["pagination"]}>
-
     <List>
       {pageNumber &&
         pageNumber.map((number) => {
@@ -21,6 +18,6 @@ function Pagination({ Allpokemons, pokemonsPerPage, paginated }) {
         })}
     </List>
   );
-}
+};
 
 export default Pagination;

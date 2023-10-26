@@ -7,7 +7,7 @@ import Home from "./views/Home";
 import Error404 from "./views/Error404";
 import Detail from "./views/Detail";
 
-function App() {
+const App = () => {
   return (
     <div>
       <Routes>
@@ -19,6 +19,6 @@ function App() {
       </Routes>
     </div>
   );
-}
+};
 
 export default App;

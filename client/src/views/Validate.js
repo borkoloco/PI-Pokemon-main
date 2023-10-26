@@ -1,4 +1,4 @@
-export default function Validate(input) {
+const Validate = (input) => {
   let errors = {};
   let validateLetters = /^[a-zA-Z]+$/;
   let validateDigits = /^[0-9]+$/;
@@ -8,7 +8,7 @@ export default function Validate(input) {
     errors.name = "Name is required to be letters and without spaces";
 
   if (!input.image || !validateUrl.test(input.image))
-    errors.image = "Image is required and URL type";
+    errors.image = "Image is required and URL";
 
   if (
     !input.hp ||
@@ -16,7 +16,7 @@ export default function Validate(input) {
     input.hp > 300 ||
     !validateDigits.test(input.hp)
   )
-    errors.hp = "Health Points is required and valid between 1 - 300";
+    errors.hp = "Health Points is required and between 1 - 300";
 
   if (
     !input.attack ||
@@ -24,7 +24,7 @@ export default function Validate(input) {
     input.attack > 200 ||
     !validateDigits.test(input.attack)
   )
-    errors.attack = "Attack is required and valid between 1 - 200";
+    errors.attack = "Attack is required and between 1 - 200";
 
   if (
     !input.defense ||
@@ -32,7 +32,7 @@ export default function Validate(input) {
     input.defense > 300 ||
     !validateDigits.test(input.defense)
   )
-    errors.defense = "Defense is required and valid between 1 - 300";
+    errors.defense = "Defense is required and between 1 - 300";
 
   if (
     !input.speed ||
@@ -40,7 +40,7 @@ export default function Validate(input) {
     input.speed > 200 ||
     !validateDigits.test(input.speed)
   )
-    errors.speed = "Speed is required and valid between 1 - 200";
+    errors.speed = "Speed is required and between 1 - 200";
 
   if (
     !input.height ||
@@ -48,7 +48,7 @@ export default function Validate(input) {
     input.height > 20 ||
     !validateDigits.test(input.height)
   )
-    errors.height = "Height is required and valid between 1 - 20 m";
+    errors.height = "Height is required and between 1 - 20 m";
 
   if (
     !input.weight ||
@@ -56,41 +56,9 @@ export default function Validate(input) {
     input.weight > 1000 ||
     !validateDigits.test(input.weight)
   )
-    errors.weight = "Weight is required and valid between  1 - 1000 kg";
+    errors.weight = "Weight is required and between 1 - 1000 kg";
 
   return errors;
-}
+};
 
-// export default function validaciones(input) {
-//   let errors = {};
-
-//   if (!input.nombre) {
-//     errors.nombre = "Name is necessary";
-//   }
-
-//   if (input.vida > 255 || !input.vida) {
-//     errors.vida = "Life is necessary and less than 255";
-//   }
-
-//   if (input.fuerza > 255 || !input.fuerza) {
-//     errors.fuerza = "Attack is necessary and less than 255";
-//   }
-
-//   if (input.defensa > 255 || !input.defensa) {
-//     errors.defensa = "Defense is necessary and less than 255";
-//   }
-
-//   if (input.velocidad > 255 || !input.velocidad) {
-//     errors.velocidad = "Speed is necessary and less than 255";
-//   }
-
-//   if (!input.altura) {
-//     errors.altura = "Height is necessary";
-//   }
-
-//   if (!input.peso) {
-//     errors.peso = "Weight is necessary";
-//   }
-
-//   return errors;
-// }
+export default Validate;

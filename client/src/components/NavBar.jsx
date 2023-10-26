@@ -4,7 +4,7 @@ import Search from "./Search";
 import pokelogo from "../assets/PokeLogo.png";
 import { Nav, Logo, Button } from "./componentsStyles.js";
 
-function Navbar() {
+const Navbar = () => {
   return (
     <Nav>
       <NavLink to="/" style={{ textDecoration: "none", color: "white" }}>
@@ -20,6 +20,6 @@ function Navbar() {
       </NavLink>
     </Nav>
   );
-}
+};
 
 export default Navbar;

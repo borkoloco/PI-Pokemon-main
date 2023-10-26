@@ -1,6 +1,4 @@
 import React from "react";
-// import styles from "./Home.module.css";
-
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
@@ -11,12 +9,10 @@ import {
   sortPokemonsName,
   sortPokemonsAttack,
 } from "../redux/actions";
-
 import Card from "../components/Card";
 import NavBar from "../components//NavBar";
 import Pagination from "../components/Pagination";
 import Loading from "../components/Loading";
-
 import {
   FilterDiv,
   PaginationButton,
@@ -30,12 +26,11 @@ const Home = () => {
   const Allpokemons = useSelector((state) => state.pokemons);
   const types = useSelector((state) => state.types);
 
-  /*paginado */
   const [currentPage, setCurrentPage] = useState(1);
   const [pokemonsPerPage] = useState(12);
 
-  const indexLastPokemons = currentPage * pokemonsPerPage; //12
-  const indexFirstPokemons = indexLastPokemons - pokemonsPerPage; //0
+  const indexLastPokemons = currentPage * pokemonsPerPage;
+  const indexFirstPokemons = indexLastPokemons - pokemonsPerPage;
   const currentPokemons = Allpokemons.slice(
     indexFirstPokemons,
     indexLastPokemons
@@ -53,63 +48,53 @@ const Home = () => {
     dispatch(getTypes());
   }, [dispatch]);
 
-  function handleClick(e) {
+  const clickHandler = (e) => {
     e.preventDefault();
     dispatch(getPokemons());
-  }
+  };
 
-  /* Resetea todos los pokemones */
-  // function handlerReset(e) {
-  //   e.preventDefault();
-  //   setCurrentPage(1);
-  //   dispatch(getPokemons());
-  // }
-
-  /* Paginado */
   const paginated = (pageNumber) => {
     setCurrentPage(pageNumber);
   };
 
-  function handleSort(e) {
+  const sortHandler = (e) => {
     e.preventDefault();
     dispatch(sortPokemonsName(e.target.value));
     setCurrentPage(1);
-    setOrder(`Ordenado ${e.target.value}`);
-  }
+    setOrder(`Ordered ${e.target.value}`);
+  };
 
-  function handleFilterCreated(e) {
+  const filterCreatedHandler = (e) => {
     dispatch(filterPokemonsCreated(e.target.value));
-  }
+  };
 
-  function handleSortAttack(e) {
+  const sortAttackHandler = (e) => {
     e.preventDefault();
     dispatch(sortPokemonsAttack(e.target.value));
     setCurrentPage(1);
-    setOrder(`Ordenado ${e.target.value}`);
-  }
+    setOrder(`Ordered ${e.target.value}`);
+  };
 
-  function handleFilterType(e) {
+  const filterTypeHandler = (e) => {
     e.preventDefault();
     dispatch(filterPokemonsTypes(e.target.value));
     setCurrentPage(1);
     setOrder(` ${e.target.value}`);
-  }
+  };
 
-  // Función para cambiar la página actual
-  const handlePageChange = (page) => {
+  const pageChangeHandler = (page) => {
     setCurrentPage(page);
   };
-  // Función para ir a la página anterior
+
   const goToPreviousPage = () => {
     if (currentPage > 1) {
-      handlePageChange(currentPage - 1);
+      pageChangeHandler(currentPage - 1);
     }
   };
 
-  // Función para ir a la página siguiente
   const goToNextPage = () => {
     if (currentPage < totalPages) {
-      handlePageChange(currentPage + 1);
+      pageChangeHandler(currentPage + 1);
     }
   };
 
@@ -119,7 +104,7 @@ const Home = () => {
         <NavBar />
 
         <FilterDiv>
-          <select onChange={(e) => handleSort(e)}>
+          <select onChange={(e) => sortHandler(e)}>
             <option>ORDER BY NAME</option>
             <option value="asc">Ascending order</option>
             <option value="desc">Descending order</option>
@@ -127,7 +112,7 @@ const Home = () => {
 
           <select
             onChange={(e) => {
-              handleSortAttack(e);
+              sortAttackHandler(e);
             }}
           >
             <option>BY STRENGTH</option>
@@ -137,7 +122,7 @@ const Home = () => {
 
           <select
             onChange={(e) => {
-              handleFilterType(e);
+              filterTypeHandler(e);
             }}
           >
             <option value="All">BY TYPE</option>
@@ -146,16 +131,16 @@ const Home = () => {
             ))}
           </select>
 
-          <select onChange={(e) => handleFilterCreated(e)}>
+          <select onChange={(e) => filterCreatedHandler(e)}>
             <option>BY CREATOR</option>
-            <option value="all">Show all...</option>
+            <option value="all">All</option>
             <option value="api">Api</option>
             <option value="created">DB</option>
           </select>
 
           <button
             onClick={(e) => {
-              handleClick(e);
+              clickHandler(e);
             }}
           >
             Reload Pokemons
@@ -174,6 +159,7 @@ const Home = () => {
             pokemonsPerPage={pokemonsPerPage}
             paginated={paginated}
           />
+
           <PaginationButton
             onClick={goToNextPage}
             disabled={currentPage === totalPages}
@@ -181,6 +167,7 @@ const Home = () => {
             {">>"}
           </PaginationButton>
         </PaginationDiv>
+
         <CardContainer>
           {currentPokemons.length ? (
             currentPokemons.map((pokemon) => {
@@ -206,73 +193,3 @@ const Home = () => {
 };
 
 export default Home;
-
-/*
-<div class="wrapper">
-<div class="title"></div>
-<div class="flip3D">
-  <div class="back">
-    <h2>Back</h2>
-  </div>
-  <div class="front">
-    <h2>Front</h2>
-  </div>
-</div>
-<div class="flip3D">
-  <div class="back">
-    <h2>Back</h2>
-  </div>
-  <div class="front">
-    <h2>Front</h2>
-  </div>
-</div>
-<div class="flip3D">
-  <div class="back">
-    <h2>Back</h2>
-  </div>
-  <div class="front">
-    <h2>Front</h2>
-  </div>
-</div>
-<div class="flip3D">
-  <div class="back">
-    <h2>Back</h2>
-  </div>
-  <div class="front">
-    <h2>Front</h2>
-  </div>
-</div>
-<div class="flip3D">
-  <div class="back">
-    <h2>Back</h2>
-  </div>
-  <div class="front">
-    <h2>Front</h2>
-  </div>
-</div>
-<div class="flip3D">
-  <div class="back">
-    <h2>Back</h2>
-  </div>
-  <div class="front">
-    <h2>Front</h2>
-  </div>
-</div>
-<div class="flip3D">
-  <div class="back">
-    <h2>Back</h2>
-  </div>
-  <div class="front">
-    <h2>Front</h2>
-  </div>
-</div>
-<div class="flip3D">
-  <div class="back">
-    <h2>Back</h2>
-  </div>
-  <div class="front">
-    <h2>Front</h2>
-  </div>
-</div>
-</div>
-*/

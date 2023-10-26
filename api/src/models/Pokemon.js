@@ -45,13 +45,3 @@ module.exports = (sequelize) => {
     { timestamps: false }
   );
 };
-
-// ID. *
-// Nombre. *
-// Imagen. *
-// Vida. *
-// Ataque. *
-// Defensa. *
-// Velocidad.
-// Altura.
-// Peso.

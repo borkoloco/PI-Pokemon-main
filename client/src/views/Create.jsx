@@ -16,7 +16,7 @@ import {
   DeleteButton,
 } from "./viewsStyles.js";
 
-function CreatePoke() {
+const CreatePokemon = () => {
   const dispatch = useDispatch();
   const Alltypes = useSelector((state) => state.types);
 
@@ -37,7 +37,7 @@ function CreatePoke() {
     dispatch(getTypes());
   }, [dispatch]);
 
-  function handleInputChange(e) {
+  function inputChangeHandler(e) {
     setInput({
       ...input,
       [e.target.name]: e.target.value,
@@ -57,18 +57,18 @@ function CreatePoke() {
         types: [...input.types, e.target.value],
       });
     } else {
-      alert("Choose one or two types for your Pokémon");
+      alert("Pick one or two types");
     }
   }
 
-  function handleDelete(e) {
+  function deleteHandler(e) {
     setInput({
       ...input,
       types: input.types.filter((type) => type !== e),
     });
   }
 
-  function handleSubmit(e) {
+  function submitHandler(e) {
     e.preventDefault();
     dispatch(postPokemon(input));
     setInput({
@@ -86,8 +86,8 @@ function CreatePoke() {
 
   return (
     <FormContainer>
-      <Form onSubmit={handleSubmit}>
-        <h1>Create Pokémon</h1>
+      <Form onSubmit={submitHandler}>
+        <h1>Create Pokemon</h1>
         <Link to="/home">
           <Button3>Go Back</Button3>
         </Link>
@@ -97,7 +97,7 @@ function CreatePoke() {
             type="text"
             name="name"
             value={input.name}
-            onChange={handleInputChange}
+            onChange={inputChangeHandler}
             className={errors.name}
           />
           {errors.name && <ErrorMessage>{errors.name}</ErrorMessage>}
@@ -108,7 +108,7 @@ function CreatePoke() {
             type="url"
             name="image"
             value={input.image}
-            onChange={handleInputChange}
+            onChange={inputChangeHandler}
             className={errors.image}
           />
           {errors.image && <ErrorMessage>{errors.image}</ErrorMessage>}
@@ -119,7 +119,7 @@ function CreatePoke() {
             type="number"
             name="hp"
             value={input.hp}
-            onChange={handleInputChange}
+            onChange={inputChangeHandler}
             className={errors.hp}
           />
           {errors.hp && <ErrorMessage>{errors.hp}</ErrorMessage>}
@@ -130,7 +130,7 @@ function CreatePoke() {
             type="number"
             name="attack"
             value={input.attack}
-            onChange={handleInputChange}
+            onChange={inputChangeHandler}
             className={errors.attack}
           />
           {errors.attack && <ErrorMessage>{errors.attack}</ErrorMessage>}
@@ -141,7 +141,7 @@ function CreatePoke() {
             type="number"
             name="defense"
             value={input.defense}
-            onChange={handleInputChange}
+            onChange={inputChangeHandler}
             className={errors.defense}
           />
           {errors.defense && <ErrorMessage>{errors.defense}</ErrorMessage>}
@@ -152,7 +152,7 @@ function CreatePoke() {
             type="number"
             name="speed"
             value={input.speed}
-            onChange={handleInputChange}
+            onChange={inputChangeHandler}
             className={errors.speed}
           />
           {errors.speed && <ErrorMessage>{errors.speed}</ErrorMessage>}
@@ -163,7 +163,7 @@ function CreatePoke() {
             type="number"
             name="height"
             value={input.height}
-            onChange={handleInputChange}
+            onChange={inputChangeHandler}
             className={errors.height}
           />
           {errors.height && <ErrorMessage>{errors.height}</ErrorMessage>}
@@ -174,7 +174,7 @@ function CreatePoke() {
             type="number"
             name="weight"
             value={input.weight}
-            onChange={handleInputChange}
+            onChange={inputChangeHandler}
             className={errors.weight}
           />
           {errors.weight && <ErrorMessage>{errors.weight}</ErrorMessage>}
@@ -194,7 +194,7 @@ function CreatePoke() {
           {input.types.map((e) => {
             return (
               <TypeTag key={e}>
-                <DeleteButton onClick={() => handleDelete(e)}>x</DeleteButton>
+                <DeleteButton onClick={() => deleteHandler(e)}>x</DeleteButton>
                 <span> {e} </span>
               </TypeTag>
             );
@@ -206,6 +206,6 @@ function CreatePoke() {
       </Form>
     </FormContainer>
   );
-}
+};
 
-export default CreatePoke;
+export default CreatePokemon;

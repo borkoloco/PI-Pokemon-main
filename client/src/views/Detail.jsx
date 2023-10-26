@@ -1,29 +1,20 @@
 import React from "react";
 import { Link, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { getPokeById } from "../redux/actions";
+import { getPokemonById } from "../redux/actions";
 import { useEffect } from "react";
 import pokebolaloading from "../assets/pokeball.gif";
-
 import { StyledDiv, LoadingContainer } from "./viewsStyles.js";
 
-export default function Detail() {
-  //const pokemon = useSelector(state => state.data);
-
+const Detail = () => {
   const dispatch = useDispatch();
   const { id } = useParams();
-
-  console.log(id);
-
-  useEffect(() => {
-    dispatch(getPokeById(id));
-  }, [dispatch, id]);
-
   const myPokemon = useSelector((state) => state.detail);
 
-  console.log(myPokemon);
+  useEffect(() => {
+    dispatch(getPokemonById(id));
+  }, [dispatch, id]);
 
-  console.log(myPokemon.types);
   return (
     <StyledDiv>
       {myPokemon ? (
@@ -56,4 +47,6 @@ export default function Detail() {
       </p>
     </StyledDiv>
   );
-}
+};
+
+export default Detail;

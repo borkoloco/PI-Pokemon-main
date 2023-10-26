@@ -182,6 +182,9 @@ export const PaginationButton = styled.button`
   border: none;
   text-decoration: none;
   background-color: hsl(0, 0%, 8%);
+  cursor: ${(props) => (props.disabled ? "not-allowed" : "pointer")};
+  opacity: ${(props) => (props.disabled ? 0.3 : 1)};
+  transition: opacity 0.2s ease;
   &.active {
     border-radius: 5px;
     transition: background-color 0.3s;
@@ -191,21 +194,12 @@ export const PaginationButton = styled.button`
     color: #fff;
     font-size: 15px;
   }
-  /* background: transparent;
-  border: none;
-  cursor: pointer;
-  transition: background-color 0.5s, color 0.5s;
-  &:hover {
-    background-color: #ff9800;
-    color: white;
-  } */
 `;
 
 export const Wrapper = styled.div`
   width: 100%;
   height: 900px;
   margin: 0 auto;
-  /* background-color: lightgrey;  */
 `;
 
 export const PaginationDiv = styled.div`
@@ -218,10 +212,6 @@ export const CardContainer = styled.div`
   width: 98vw;
   justify-content: center;
 `;
-
-// const FilterDiv = styled.div`
-//   display: flex;
-// `;
 
 //Landing
 export const Video = styled.video`

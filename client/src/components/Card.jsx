@@ -6,15 +6,15 @@ import {
   Front,
   Back,
   Flip3DContainer,
+  Title2,
 } from "./componentsStyles.js";
 
-function Card({ id, name, image, attack, types }) {
+const Card = ({ id, name, image, attack, types }) => {
   return (
     <Flip3DContainer>
       <Flip3D>
         <Back>
-          <Title>Type</Title>
-          <Title>{types}</Title>
+          <Title>{`Type: ${types}`}</Title>
           <Title>{`Attack: ${attack}`}</Title>
           <Link to={`/pokemon/${id}`}>
             <Title>Details</Title>
@@ -24,11 +24,11 @@ function Card({ id, name, image, attack, types }) {
         <Front>
           <img src={image} alt="pokemon" width="190px" heigth="190px" />
 
-          <Title>{name}</Title>
+          <Title2>{name}</Title2>
         </Front>
       </Flip3D>
     </Flip3DContainer>
   );
-}
+};
 
 export default Card;

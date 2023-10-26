@@ -80,7 +80,7 @@ const reducer = (state = initialState, action) => {
             );
       if (filterpokemonstypes.length === 0) {
         filterpokemonstypes = aux3;
-        alert("No pokemon of that type");
+        alert("No pokemon of such type");
       }
       return {
         ...state,
