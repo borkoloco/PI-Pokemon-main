@@ -7,10 +7,10 @@ const getPokeApi = async () => {
   let pokeInfo = await axios.all(apiInfo).then((response) =>
     response.map((poke) => {
       return {
-        id: poke.data.id,
-        name: poke.data.name,
-        image: poke.data.sprites.other.home.front_default,
-        types: poke.data.types.map((ele) => {
+        id: poke?.data?.id,
+        name: poke?.data?.name,
+        image: poke?.data?.sprites?.other?.home?.front_default,
+        types: poke?.data?.types?.map((ele) => {
           return { name: ele.type.name };
         }),
         attack: poke.data.stats[1].base_stat,
