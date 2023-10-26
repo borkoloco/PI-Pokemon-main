@@ -13,7 +13,7 @@ const getPokeApi = async () => {
         types: poke?.data?.types?.map((ele) => {
           return { name: ele.type.name };
         }),
-        attack: poke.data.stats[1].base_stat,
+        attack: poke?.data?.stats[1]?.base_stat,
       };
     })
   );
