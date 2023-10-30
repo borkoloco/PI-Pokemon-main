@@ -101,7 +101,7 @@ const createPoke = async ({
     !image ||
     !types
   ) {
-    throw Error("Sending incomplete information!");
+    throw Error("Incomplete information!");
   } else {
     const create = await Pokemon.create({
       name,
@@ -117,7 +117,7 @@ const createPoke = async ({
       where: { name: types },
     });
     await create.addType(typeDb);
-    return { message: "Pokémon created successfully", create };
+    return { message: "Pokemon created", create };
   }
 };
 
