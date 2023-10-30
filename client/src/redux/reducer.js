@@ -61,8 +61,8 @@ const reducer = (state = initialState, action) => {
       let aux2 = state.pokemons;
       let sorted2 =
         action.payload === "asc"
-          ? aux2.sort((a, b) => a.attack - b.attack)
-          : aux2.sort((a, b) => b.attack - a.attack);
+          ? aux2.sort((a, b) => b.attack - a.attack)
+          : aux2.sort((a, b) => a.attack - b.attack);
       return {
         ...state,
         pokemons: sorted2,
@@ -109,3 +109,10 @@ const reducer = (state = initialState, action) => {
 };
 
 export default reducer;
+
+// el filtro no permanece
+// filtro por tipo de la base de datos no funciona...si para todos
+//el problema es que el tipo no se hace sobre todos los pokemones sino sobre la copia
+
+// _.filter(people, { sport: "basketball", country: "NZ" });
+// const filterByCreteria = (people, creteria) => _.filter(people, criteria);

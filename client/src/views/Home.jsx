@@ -61,18 +61,21 @@ const Home = () => {
     e.preventDefault();
     dispatch(sortPokemonsName(e.target.value));
     setCurrentPage(1);
-    setOrder(`Ordered ${e.target.value}`);
+    setOrder(`${e.target.value}`);
   };
 
   const filterCreatedHandler = (e) => {
+    e.preventDefault();
     dispatch(filterPokemonsCreated(e.target.value));
+    setCurrentPage(1);
+    setOrder(`${e.target.value}`);
   };
 
   const sortAttackHandler = (e) => {
     e.preventDefault();
     dispatch(sortPokemonsAttack(e.target.value));
     setCurrentPage(1);
-    setOrder(`Ordered ${e.target.value}`);
+    setOrder(`${e.target.value}`);
   };
 
   const filterTypeHandler = (e) => {
@@ -132,8 +135,7 @@ const Home = () => {
           </select>
 
           <select onChange={(e) => filterCreatedHandler(e)}>
-            <option>BY CREATOR</option>
-            <option value="all">All</option>
+            <option value="All">BY CREATOR</option>
             <option value="api">Api</option>
             <option value="created">DB</option>
           </select>
@@ -177,7 +179,7 @@ const Home = () => {
                     id={pokemon.id}
                     name={pokemon.name}
                     image={pokemon.image}
-                    types={pokemon.types.map((p) => `${p.name + " "}`)}
+                    types={pokemon.types.map((p) => `${" " + p.name}`)}
                     attack={pokemon.attack}
                   />
                 </div>

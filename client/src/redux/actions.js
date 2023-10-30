@@ -70,7 +70,6 @@ export const getPokemonById = (id) => {
 };
 
 export const postPokemon = (payload) => {
-  console.log(payload);
   return async () => {
     try {
       const { data } = await axios.post("/pokemon", payload);

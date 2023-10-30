@@ -1,7 +1,7 @@
 import React from "react";
 import { Link, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { getPokemonById } from "../redux/actions";
+import { getPokemonById, clear } from "../redux/actions";
 import { useEffect } from "react";
 import pokebolaloading from "../assets/pokeball.gif";
 import { StyledDiv, LoadingContainer } from "./viewsStyles.js";
@@ -13,6 +13,9 @@ const Detail = () => {
 
   useEffect(() => {
     dispatch(getPokemonById(id));
+    return () => {
+      dispatch(clear());
+    };
   }, [dispatch, id]);
 
   return (
