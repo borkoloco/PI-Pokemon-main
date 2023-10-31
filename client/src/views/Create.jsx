@@ -37,7 +37,7 @@ const CreatePokemon = () => {
     dispatch(getTypes());
   }, [dispatch]);
 
-  function inputChangeHandler(e) {
+  const inputChangeHandler = (e) => {
     setInput({
       ...input,
       [e.target.name]: e.target.value,
@@ -48,9 +48,9 @@ const CreatePokemon = () => {
         [e.target.name]: e.target.value,
       })
     );
-  }
+  };
 
-  function handleSelect(e) {
+  const handleSelect = (e) => {
     if (input.types.length < 2) {
       setInput({
         ...input,
@@ -59,16 +59,16 @@ const CreatePokemon = () => {
     } else {
       alert("Pick one or two types");
     }
-  }
+  };
 
-  function deleteHandler(e) {
+  const deleteHandler = (e) => {
     setInput({
       ...input,
       types: input.types.filter((type) => type !== e),
     });
-  }
+  };
 
-  function submitHandler(e) {
+  const submitHandler = (e) => {
     e.preventDefault();
     dispatch(postPokemon(input));
     setInput({
@@ -82,7 +82,7 @@ const CreatePokemon = () => {
       weight: "",
       types: [],
     });
-  }
+  };
 
   return (
     <FormContainer>
