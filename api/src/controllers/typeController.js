@@ -8,7 +8,8 @@ const getTypes = async () => {
     const types = typesApi.data.results.map((type) => {
       return { name: type.name };
     });
-    await Type.bulkCreate(types);
+    const newTypes = await Type.bulkCreate(types);
+    return newTypes;
   }
   return typesDb;
 };

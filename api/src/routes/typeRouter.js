@@ -5,9 +5,9 @@ const { getTypes } = require("./../controllers/typeController");
 typeRouter.get("/", async (req, res) => {
   try {
     const typeDb = await getTypes();
-    res.status(200).send(typeDb);
+    res.status(200).json(typeDb);
   } catch (error) {
-    res.status(400).send({ error: error.message });
+    res.status(400).json({ error: error.message });
   }
 });
 
