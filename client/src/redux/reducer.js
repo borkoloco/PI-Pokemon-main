@@ -36,6 +36,7 @@ const reducer = (state = initialState, action) => {
         ...state,
         pokemons: action.payload,
       };
+
     case GET_POKEMON_ID:
       return {
         ...state,
@@ -69,7 +70,6 @@ const reducer = (state = initialState, action) => {
       };
 
     case FILTER_POKEMONS_TYPES:
-      // let aux3 = state.pokemons; // esto soluciona pero debo resetear
       let aux3 = state.allPokemons;
       let filterpokemonstypes =
         action.payload === "All"
@@ -97,6 +97,7 @@ const reducer = (state = initialState, action) => {
         ...state,
         pokemons: action.payload === "All" ? aux4 : filterpokemonscreated,
       };
+
     case CLEAR:
       return {
         ...state,
@@ -110,10 +111,3 @@ const reducer = (state = initialState, action) => {
 };
 
 export default reducer;
-
-// el filtro no permanece
-// filtro por t
-//el problema es que el tipo no se hace sobre todos los pokemones sino sobre la copia
-
-// _.filter(people, { sport: "basketball", country: "NZ" });
-// const filterByCreteria = (people, creteria) => _.filter(people, criteria);

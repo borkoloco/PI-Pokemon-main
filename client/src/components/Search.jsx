@@ -15,7 +15,7 @@ const Search = () => {
   const submitHandler = (e) => {
     e.preventDefault();
     if (name === "") {
-      alert("Exact Pokémon Name Required");
+      alert("Exact Pokemon Name Required");
     } else {
       dispatch(getPokemonName(name));
     }
