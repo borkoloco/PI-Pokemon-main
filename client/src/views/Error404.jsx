@@ -4,7 +4,7 @@ import error404 from "../assets/error404.png";
 
 const Error404 = () => {
   return (
-    <Link to="/home">
+    <Link to="/">
       <img
         src={error404}
         style={{

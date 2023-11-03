@@ -36,6 +36,7 @@ export const Button3 = styled.button`
   padding: 10px;
   cursor: pointer;
   margin-top: 10px;
+  margin-left: 50px;
 `;
 
 export const ErrorMessage = styled.p`
@@ -182,6 +183,7 @@ export const PaginationButton = styled.button`
   border: none;
   text-decoration: none;
   background-color: hsl(0, 0%, 8%);
+  background-color: white;
   cursor: ${(props) => (props.disabled ? "not-allowed" : "pointer")};
   opacity: ${(props) => (props.disabled ? 0.3 : 1)};
   transition: opacity 0.2s ease;

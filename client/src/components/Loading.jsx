@@ -10,7 +10,7 @@ const Loading = () => (
       style={{ width: "200px", height: "200px", display: "block" }}
       alt="pokeball"
     />
-    <h2 style={{ color: "white" }}>Loading...</h2>
+    <h2 style={{ color: "white" }}>Waiting...</h2>
   </LoadingContainer>
 );
 

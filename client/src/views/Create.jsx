@@ -1,7 +1,7 @@
 import { React, useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { getTypes, postPokemon } from "../redux/actions";
+import { getTypes, postPokemon, getPokemons } from "../redux/actions";
 import Validate from "./Validate";
 import {
   FormContainer,
@@ -15,10 +15,12 @@ import {
   TypeTag,
   DeleteButton,
 } from "./viewsStyles.js";
+import { useNavigate } from "react-router-dom";
 
 const CreatePokemon = () => {
   const dispatch = useDispatch();
   const Alltypes = useSelector((state) => state.types);
+  const navigate = useNavigate();
 
   const [errors, setErrors] = useState({});
   const [input, setInput] = useState({
@@ -82,15 +84,26 @@ const CreatePokemon = () => {
       weight: "",
       types: [],
     });
+    dispatch(getPokemons());
+  };
+
+  const clickHandler = () => {
+    // acción del botón para navegar hacia atrás en la historia de rutas
+    dispatch(getPokemons());
+    navigate(-1);
   };
 
   return (
     <FormContainer>
-      <Form onSubmit={submitHandler}>
-        <h1>Create Pokemon</h1>
-        <Link to="/home">
+      <h1>
+        Create Pokemon <Button3 onClick={clickHandler}>Go Back</Button3>
+      </h1>
+
+      <Form>
+        {/* <Link to="/home">
           <Button3>Go Back</Button3>
-        </Link>
+        </Link> */}
+
         <FormGroup>
           <Label htmlFor="name">Name : </Label>
           <Input
@@ -201,7 +214,9 @@ const CreatePokemon = () => {
           })}
         </FormGroup>
 
-        <Button3 type="submit">Create Pokemon</Button3>
+        <Button3 onClick={submitHandler} type="submit">
+          Create Pokemon
+        </Button3>
         <br />
       </Form>
     </FormContainer>
