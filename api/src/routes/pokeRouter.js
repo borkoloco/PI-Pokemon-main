@@ -25,24 +25,6 @@ pokeRouter.get("/", async (req, res) => {
   }
 });
 
-// pokeRouter.get("/", async (req, res) => {
-//   try {
-//     const { attack } = req.query;
-//     const pokeAll = await getPokes();
-//     if (attack) {
-//       let pokeAttack = pokeAll.filter((poke) => +poke.attack === +attack);
-
-//       pokeAttack.length
-//         ? res.status(200).json(pokeAttack)
-//         : res.status(404).json({ error: "Attack not found" });
-//     } else {
-//       res.status(200).json(pokeAll);
-//     }
-//   } catch (error) {
-//     res.status(404).json({ error: error.message });
-//   }
-// });
-
 pokeRouter.get("/:id", async (req, res) => {
   try {
     const { id } = req.params;
