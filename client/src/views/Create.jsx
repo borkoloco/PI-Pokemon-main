@@ -1,5 +1,4 @@
 import { React, useEffect, useState } from "react";
-// import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { getTypes, postPokemon, getPokemons } from "../redux/actions";
 import Validate from "./Validate";
@@ -88,7 +87,6 @@ const CreatePokemon = () => {
   };
 
   const clickHandler = () => {
-    // acción del botón para navegar hacia atrás en la historia de rutas
     dispatch(getPokemons());
     navigate(-1);
   };
@@ -100,10 +98,6 @@ const CreatePokemon = () => {
       </h1>
 
       <Form>
-        {/* <Link to="/home">
-          <Button3>Go Back</Button3>
-        </Link> */}
-
         <FormGroup>
           <Label htmlFor="name">Name : </Label>
           <Input

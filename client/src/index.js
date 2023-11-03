@@ -9,9 +9,9 @@ import store from "./redux/store";
 import axios from "axios";
 
 // para deploy
-// axios.defaults.baseURL = "https://pokemon-api-7qvi.onrender.com";
+axios.defaults.baseURL = "https://pokemon-api-7qvi.onrender.com";
 //para localhost
-axios.defaults.baseURL = "http://localhost:3001";
+// axios.defaults.baseURL = "http://localhost:3001";
 
 ReactDOM.render(
   <Provider store={store}>
